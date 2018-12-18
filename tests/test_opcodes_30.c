@@ -1,9 +1,11 @@
 #include <aiv_unit_test.h>
 #include <aiv_gb.h>
 
+#define SIGN printf("Stirlani:        \n");
+
 TEST(ld_sp_d16)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
 
     aiv_gb_init(&gb);
@@ -18,7 +20,7 @@ TEST(ld_sp_d16)
 }
 TEST(inc_sp)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -30,8 +32,7 @@ TEST(inc_sp)
 }
 TEST(inc_HL_value)
 {
-    printf("Stirlani");
-
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -50,8 +51,7 @@ TEST(inc_HL_value)
 }
 TEST(inc_HL_value_zero)
 {
-    printf("Stirlani");
-
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -66,8 +66,7 @@ TEST(inc_HL_value_zero)
 }
 TEST(inc_HL_value_half_zero)
 {
-    printf("Stirlani");
-
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -82,8 +81,7 @@ TEST(inc_HL_value_half_zero)
 }
 TEST(dec_HL_value)
 {
-    printf("Stirlani");
-
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -105,8 +103,7 @@ TEST(dec_HL_value)
 }
 TEST(dec_HL_value_zero)
 {
-    printf("Stirlani: ");
-
+   SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -123,8 +120,7 @@ TEST(dec_HL_value_zero)
 }
 TEST(dec_HL_value_half_zero)
 {
-    printf("Stirlani: ");
-
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -141,7 +137,7 @@ TEST(dec_HL_value_half_zero)
 }
 TEST(jr)
 {
-    printf("Stirlani: ");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -152,6 +148,7 @@ TEST(jr)
 }
 TEST(ld_hl_dec_a)
 {
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
     gb.a = 1;
@@ -166,6 +163,7 @@ TEST(ld_hl_dec_a)
 }
 TEST(LD_HL_d8)
 {
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
     gb.hl = 1;
@@ -179,6 +177,7 @@ TEST(LD_HL_d8)
 }
 TEST(SCF)
 {
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
     gb.cartridge[0] = 0x37;
@@ -190,7 +189,7 @@ TEST(SCF)
 }
 TEST(ADD_HL_SP_test)
 {
-
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
     gb.cartridge[0] = 0x39;
@@ -207,7 +206,7 @@ TEST(ADD_HL_SP_test)
 }
 TEST(ADD_HL_SP_test_carry)
 {
-
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
     gb.cartridge[0] = 0x39;
@@ -223,6 +222,7 @@ TEST(ADD_HL_SP_test_carry)
 }
 TEST(LD_A_HL_test)
 {
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -239,7 +239,7 @@ TEST(LD_A_HL_test)
 }
 TEST(dec_sp_test)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -252,7 +252,7 @@ TEST(dec_sp_test)
 }
 TEST(inc_a_test)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -265,7 +265,7 @@ TEST(inc_a_test)
 }
 TEST(inc_a_test_neg)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -276,7 +276,7 @@ TEST(inc_a_test_neg)
 }
 TEST(inc_a_test_zero)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -287,7 +287,7 @@ TEST(inc_a_test_zero)
 }
 TEST(inc_a_test_half)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -299,7 +299,7 @@ TEST(inc_a_test_half)
 
 TEST(dec_a_test)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -312,7 +312,7 @@ TEST(dec_a_test)
 }
 TEST(dec_a_test_neg)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -323,7 +323,7 @@ TEST(dec_a_test_neg)
 }
 TEST(dec_a_test_zero)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -334,7 +334,7 @@ TEST(dec_a_test_zero)
 }
 TEST(dec_a_test_half)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -345,7 +345,7 @@ TEST(dec_a_test_half)
 }
 TEST(CCF_test_carry_unset)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -355,13 +355,13 @@ TEST(CCF_test_carry_unset)
 
     aiv_gb_tick(&gb);
 
-    ASSERT_THAT(aiv_gb_get_flag(&gb,CARRY) == 0);
-    ASSERT_THAT(aiv_gb_get_flag(&gb,HALF) == 0);
-    ASSERT_THAT(aiv_gb_get_flag(&gb,NEG) == 0);
+    ASSERT_THAT(aiv_gb_get_flag(&gb, CARRY) == 0);
+    ASSERT_THAT(aiv_gb_get_flag(&gb, HALF) == 0);
+    ASSERT_THAT(aiv_gb_get_flag(&gb, NEG) == 0);
 }
 TEST(CCF_test_carry_set)
 {
-    printf("Stirlani");
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -371,12 +371,13 @@ TEST(CCF_test_carry_set)
 
     aiv_gb_tick(&gb);
 
-    ASSERT_THAT(aiv_gb_get_flag(&gb,CARRY) == 16);
-    ASSERT_THAT(aiv_gb_get_flag(&gb,HALF) == 0);
-    ASSERT_THAT(aiv_gb_get_flag(&gb,NEG) == 0);
+    ASSERT_THAT(aiv_gb_get_flag(&gb, CARRY) == 16);
+    ASSERT_THAT(aiv_gb_get_flag(&gb, HALF) == 0);
+    ASSERT_THAT(aiv_gb_get_flag(&gb, NEG) == 0);
 }
-TEST(ld_on_a_register_a_value){
-    printf("Stirlani");
+TEST(ld_on_a_register_a_value)
+{
+    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
 
@@ -391,6 +392,63 @@ TEST(ld_on_a_register_a_value){
     ASSERT_THAT(gb.sp == 1);
     ASSERT_THAT(gb.ticks == 8);
 }
+TEST(JR_test)
+{
+    SIGN;
+    aiv_gameboy gb;
+    aiv_gb_init(&gb);
+    aiv_gb_set_flag(&gb, CARRY, 0);
+    gb.cartridge[0] = 0x30;
+    gb.cartridge[1] = 0x0A;
+    gb.cartridge[2] = 0x80;
+
+    aiv_gb_tick(&gb);
+
+    ASSERT_THAT(gb.sp == 0x0a);
+}
+TEST(JR_test_carry_set)
+{
+    SIGN;
+    aiv_gameboy gb;
+    aiv_gb_init(&gb);
+    aiv_gb_set_flag(&gb, CARRY, 1);
+    gb.cartridge[0] = 0x30;
+    gb.cartridge[1] = 0x0A;
+    gb.cartridge[2] = 0x80;
+
+    aiv_gb_tick(&gb);
+
+    ASSERT_THAT(gb.sp == 0x00);
+}
+TEST(JR_c_test)
+{
+    SIGN;
+    aiv_gameboy gb;
+    aiv_gb_init(&gb);
+    aiv_gb_set_flag(&gb, CARRY, 0);
+    gb.cartridge[0] = 0x38;
+    gb.cartridge[1] = 0x0A;
+    gb.cartridge[2] = 0x80;
+
+    aiv_gb_tick(&gb);
+
+    ASSERT_THAT(gb.sp == 0x00);
+}
+TEST(JR_C_test_carry_set)
+{
+    SIGN;
+    aiv_gameboy gb;
+    aiv_gb_init(&gb);
+    aiv_gb_set_flag(&gb, CARRY, 1);
+    gb.cartridge[0] = 0x38;
+    gb.cartridge[1] = 0x0A;
+    gb.cartridge[2] = 0x80;
+
+    aiv_gb_tick(&gb);
+
+    ASSERT_THAT(gb.sp == 0x0a);
+}
+
 void aiv_gb_tests_run_opcodes_30()
 {
     RUN_TEST(ld_sp_d16);
@@ -420,4 +478,8 @@ void aiv_gb_tests_run_opcodes_30()
     RUN_TEST(CCF_test_carry_unset);
     RUN_TEST(CCF_test_carry_set);
     RUN_TEST(ld_on_a_register_a_value);
+    RUN_TEST(JR_test);
+    RUN_TEST(JR_test_carry_set);
+    RUN_TEST(JR_c_test);
+    RUN_TEST(JR_C_test_carry_set);
 }

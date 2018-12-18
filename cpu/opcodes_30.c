@@ -7,9 +7,8 @@ static int aiv_gb_opcode_30(aiv_gameboy *gb)
     u8_t carry = aiv_gb_get_flag(gb, CARRY);
     if (carry == 0)
     {
-        gb->sp++;
-        s8_t value = gb->cartridge[gb->sp];
-        printf("%d", value);
+        s8_t value = (s8_t)gb->cartridge[gb->sp + 1];
+        gb->sp += value;
         return 12;
     }
     return 8;
@@ -113,7 +112,20 @@ static int aiv_gb_opcode_37(aiv_gameboy *gb)
     aiv_gb_set_flag(gb, CARRY, 1);
     return 4;
 }
-
+// JR 0x38
+static int aiv_gb_opcode_38(aiv_gameboy *gb)
+{
+    u8_t carry = aiv_gb_get_flag(gb, CARRY);
+    if (carry == 1)
+    {
+        printf("%i   ", gb->sp);
+        s8_t value = (s8_t)gb->cartridge[gb->sp + 1];
+        gb->sp += value;
+        printf("%i", gb->sp);
+        return 12;
+    }
+    return 8;
+}
 //ADD HL,SP
 static int aiv_gb_opcode_39(aiv_gameboy *gb)
 {
@@ -245,12 +257,12 @@ void aiv_gb_register_opcodes_30(aiv_gameboy *gb)
     gb->opcodes[0x35] = aiv_gb_opcode_35;
     gb->opcodes[0x36] = aiv_gb_opcode_36;
     gb->opcodes[0x37] = aiv_gb_opcode_37;
+    gb->opcodes[0x38] = aiv_gb_opcode_38;
     gb->opcodes[0x39] = aiv_gb_opcode_39;
     gb->opcodes[0x3a] = aiv_gb_opcode_3a;
     gb->opcodes[0x3b] = aiv_gb_opcode_3b;
     gb->opcodes[0x3c] = aiv_gb_opcode_3c;
     gb->opcodes[0x3d] = aiv_gb_opcode_3d;
     gb->opcodes[0x3e] = aiv_gb_opcode_3e;
-
     gb->opcodes[0x3f] = aiv_gb_opcode_3f;
 }
