@@ -1,4 +1,4 @@
-CC=clang
+CC=C:\Program Files\LLVM\bin\clang
 CFLAGS=-O2 -Wall -Werror -I.
 
 OPCODES=$(patsubst %.c,%.o,$(wildcard cpu/*.c))
@@ -22,7 +22,7 @@ cpu.o: cpu.c aiv_gb.h
 memory.o: memory.c aiv_gb.h
 	$(CC) -c -o $@ $(CFLAGS) $<
 
-tests/test_%.o: tests/test_%.c aiv_gb.h aiv_unit_test.h
+tests/test_%.o: tests/test_%.c aiv_gb.h
 	$(CC) -c -o $@ $(CFLAGS) $<
 
 test: cpu.o memory.o tests.o $(OPCODES) $(TESTS)
