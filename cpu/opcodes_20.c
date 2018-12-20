@@ -128,11 +128,8 @@ static int aiv_gb_opcode_2D(aiv_gameboy *gb)
 // LD (HL+), A
 static int aiv_gb_opcode_22(aiv_gameboy *gb)
 {
-    u16_t val = aiv_gb_memory_read16(gb, gb->hl);
-    gb->pc += 2;
+    aiv_gb_memory_write8(gb, gb->hl, gb->a);
     gb->hl++;
-
-    aiv_gb_memory_write8(gb, val, gb->a);
     gb->pc += 1;
     return 8;
 }
