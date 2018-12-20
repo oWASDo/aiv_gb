@@ -389,7 +389,7 @@ TEST(ld_on_a_register_a_value)
     aiv_gb_tick(&gb);
 
     ASSERT_THAT(gb.a == 5);
-    ASSERT_THAT(gb.sp == 1);
+    ASSERT_THAT(gb.pc == 2);
     ASSERT_THAT(gb.ticks == 8);
 }
 TEST(JR_test)
@@ -432,21 +432,22 @@ TEST(JR_c_test)
 
     aiv_gb_tick(&gb);
 
-    ASSERT_THAT(gb.sp == 0x00);
+    ASSERT_THAT(gb.pc == 0x02);
+    ASSERT_THAT(gb.ticks == 8);
+
 }
 TEST(JR_C_test_carry_set)
 {
-    SIGN;
     aiv_gameboy gb;
     aiv_gb_init(&gb);
     aiv_gb_set_flag(&gb, CARRY, 1);
-    gb.cartridge[0] = 0x38;
-    gb.cartridge[1] = 0x0A;
-    gb.cartridge[2] = 0x80;
+
+    gb.cartridge[0] = 0x28;
+    gb.cartridge[1] = 0x02;
 
     aiv_gb_tick(&gb);
-
-    ASSERT_THAT(gb.sp == 0x0a);
+    ASSERT_THAT(gb.pc == 4);
+    ASSERT_THAT(gb.ticks == 12);
 }
 
 void aiv_gb_tests_run_opcodes_30()

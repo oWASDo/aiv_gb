@@ -115,13 +115,14 @@ static int aiv_gb_opcode_37(aiv_gameboy *gb)
 // JR 0x38
 static int aiv_gb_opcode_38(aiv_gameboy *gb)
 {
-    u8_t carry = aiv_gb_get_flag(gb, CARRY);
-    if (carry == 1)
+    s8_t val = aiv_gb_memory_read8(gb, gb->pc);
+    gb->pc += 1;
+
+    if(aiv_gb_get_flag(gb, CARRY) == 16)
     {
-        printf("%i   ", gb->sp);
-        s8_t value = (s8_t)gb->cartridge[gb->sp + 1];
-        gb->sp += value;
-        printf("%i", gb->sp);
+        s16_t _pc = gb->pc;
+        _pc += val;
+        gb->pc = _pc;
         return 12;
     }
     return 8;
@@ -220,10 +221,7 @@ static int aiv_gb_opcode_3d(aiv_gameboy *gb)
 //LD A,d8
 static int aiv_gb_opcode_3e(aiv_gameboy *gb)
 {
-
-    u8_t val = aiv_gb_memory_read8(gb, gb->sp + 1);
-    gb->a = val;
-    gb->sp++;
+    gb->a = aiv_gb_memory_read8(gb, gb->pc++);
 
     return 8;
 }
