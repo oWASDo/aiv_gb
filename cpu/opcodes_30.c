@@ -4,11 +4,16 @@
 // JR 0x30
 static int aiv_gb_opcode_30(aiv_gameboy *gb)
 {
-    u8_t carry = aiv_gb_get_flag(gb, CARRY);
-    if (carry == 0)
+
+
+    s8_t val = aiv_gb_memory_read8(gb, gb->pc);
+    gb->pc += 1;
+
+    if(aiv_gb_get_flag(gb, CARRY) == 0)
     {
-        s8_t value = (s8_t)gb->cartridge[gb->sp + 1];
-        gb->sp += value;
+        s16_t _pc = gb->pc;
+        _pc += val;
+        gb->pc = _pc;
         return 12;
     }
     return 8;

@@ -404,7 +404,11 @@ TEST(JR_test)
 
     aiv_gb_tick(&gb);
 
-    ASSERT_THAT(gb.sp == 0x0a);
+    printf("%i",gb.pc);
+
+    ASSERT_THAT(gb.pc == 0x0c);
+    ASSERT_THAT(gb.ticks == 12);
+
 }
 TEST(JR_test_carry_set)
 {
@@ -418,7 +422,9 @@ TEST(JR_test_carry_set)
 
     aiv_gb_tick(&gb);
 
-    ASSERT_THAT(gb.sp == 0x00);
+    ASSERT_THAT(gb.pc == 0x02);
+    ASSERT_THAT(gb.ticks == 8);
+
 }
 TEST(JR_c_test)
 {
