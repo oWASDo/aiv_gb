@@ -78,10 +78,10 @@ int main(int argc, char **argv)
     aiv_gb_tests_run_prefix_cb_70();
 
 
-    aiv_gb_tests_func_roberto();
-    aiv_gb_tests_func_roberto();   
-    aiv_gb_tests_func_massimo();    
-    aiv_gb_tests_run_func_alessio();
+    //aiv_gb_tests_func_roberto();
+    //aiv_gb_tests_func_roberto();   
+    //aiv_gb_tests_func_massimo();    
+   // aiv_gb_tests_run_func_alessio();
 
     aiv_simone_stirlani_test();
     PRINT_TEST_RESULTS();

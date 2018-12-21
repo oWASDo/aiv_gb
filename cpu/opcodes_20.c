@@ -18,7 +18,7 @@ static int aiv_gb_opcode_20(aiv_gameboy *gb)
 // JR Z, r8
 static int aiv_gb_opcode_28(aiv_gameboy *gb)
 {
-    s8_t val = aiv_gb_memory_read8(gb, gb->pc);
+    s8_t val = aiv_gb_memory_read8(gb, gb->pc++);
     gb->pc += 1;
 
     if(aiv_gb_get_flag(gb, ZERO) == 0)
@@ -130,7 +130,8 @@ static int aiv_gb_opcode_22(aiv_gameboy *gb)
 {
     aiv_gb_memory_write8(gb, gb->hl, gb->a);
     gb->hl++;
-    gb->pc += 1;
+    // program conuter was already avanced
+    //gb->pc += 1;
     return 8;
 }
 
@@ -138,7 +139,8 @@ static int aiv_gb_opcode_22(aiv_gameboy *gb)
 static int aiv_gb_opcode_2A(aiv_gameboy *gb)
 {
     u8_t val = aiv_gb_memory_read8(gb, gb->hl);
-    gb->pc += 1;
+    // program conuter was already avanced
+    //gb->pc += 1;
     gb->hl++;
 
     gb->a = val;

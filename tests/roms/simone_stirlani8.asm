@@ -1,0 +1,4 @@
+SECTION "MAIN", ROM0[$100]
+
+LD A,[HL+]
+ halt 

@@ -1,0 +1,6 @@
+SECTION "MAIN", ROM0[$100]
+
+DEC HL
+INC L
+DEC L
+ halt 
